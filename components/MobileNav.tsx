@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import Footer from "./Footer"
 
 
 const MobileNav = ({ user }: MobileNavProps) => {
@@ -50,8 +51,8 @@ const MobileNav = ({ user }: MobileNavProps) => {
                                     const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
                                     return (
                                         <SheetClose asChild key={item.label}>
-                                         <Link href={item.route} key={item.label} className={cn('mobilenav-sheet_close w-full', { 'bg-bank-gradient': isActive })}>
-                                            
+                                            <Link href={item.route} key={item.label} className={cn('mobilenav-sheet_close w-full', { 'bg-bank-gradient': isActive })}>
+
                                                 <Image
                                                     src={item.imgURL}
                                                     alt={item.imgURL}
@@ -61,16 +62,16 @@ const MobileNav = ({ user }: MobileNavProps) => {
                                                         'brightness-[3] invert-0': isActive
                                                     })}
                                                 />
-                                            
-                                            <p className={cn("text-16 font-semibold text-black-2", { "text-white": isActive })}>
-                                                {item.label}
-                                            </p>
 
-                                        </Link>
+                                                <p className={cn("text-16 font-semibold text-black-2", { "text-white": isActive })}>
+                                                    {item.label}
+                                                </p>
+
+                                            </Link>
                                         </SheetClose>
 
-                                        
-                                        
+
+
                                     )
                                 })}
 
@@ -78,7 +79,7 @@ const MobileNav = ({ user }: MobileNavProps) => {
                             </nav>
 
                         </SheetClose>
-                        FOOTER
+                        <Footer user ={user} type= "mobile" />
                     </div>
 
                 </SheetContent>
